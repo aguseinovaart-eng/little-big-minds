@@ -1,0 +1,46 @@
+/* Shared styles for Little Big Minds pages (product, about) */
+:root{
+  --paper:#f7efe1;--paper2:#f1e6d2;--card:#fffdf7;--ink:#4f453a;--muted:#93826f;
+  --terra:#d98468;--terra-d:#c06b52;--sage:#8aa683;--mustard:#ddab5e;--blue:#8fb0c4;--plum:#b389aa;
+  --line:#e8dac2;--shadow:0 14px 30px rgba(79,69,58,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);line-height:1.6;
+  background-color:var(--paper);background-image:radial-gradient(rgba(200,170,120,.12) 1.3px, transparent 1.3px);background-size:24px 24px;}
+h1,h2,h3,.brand{font-family:"Fredoka",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.hand{font-family:"Gochi Hand",cursive}
+.btn{display:inline-block;font-weight:800;padding:14px 26px;border-radius:16px;background:var(--terra);color:#fff;
+  box-shadow:var(--shadow);border:2px solid var(--terra-d);cursor:pointer;font-family:inherit;font-size:16px;transition:transform .15s ease}
+.btn:hover{transform:translate(-1px,-2px)}
+.btn.ghost{background:#fff;color:var(--ink);border:2px dashed var(--sage)}
+.tape{display:inline-block;font-family:"Gochi Hand",cursive;font-size:18px;background:#fff;padding:6px 16px;
+  border:2px solid var(--line);border-radius:8px;color:var(--sage);transform:rotate(-2deg);box-shadow:var(--shadow)}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:rgba(247,239,225,.92);backdrop-filter:blur(6px);border-bottom:2px dashed var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+.brand{display:flex;align-items:center;gap:12px;font-size:25px;font-weight:700}
+.menu{display:flex;gap:28px;font-family:"Gochi Hand",cursive;font-size:20px;color:var(--muted)}
+.menu a:hover{color:var(--terra)}
+.lang{font-family:"Gochi Hand",cursive;font-size:17px;border:2px solid var(--line);border-radius:10px;padding:5px 12px;color:var(--muted)}
+
+/* Chips */
+.chips{display:flex;gap:12px;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:9px;background:#fff;border:2px solid var(--line);border-radius:14px;
+  padding:10px 15px;font-weight:800;font-size:13px;box-shadow:var(--shadow)}
+.chip svg{width:20px;height:20px;flex:0 0 auto}
+
+/* Footer */
+footer{background:var(--ink);color:#f3e9d8;padding:46px 0;text-align:center;margin-top:60px}
+footer .brand{justify-content:center;color:#fff;margin-bottom:8px}
+footer p{color:#cbbfad;font-size:14px;opacity:.9}
+footer .hand{color:var(--mustard);font-size:20px}
+
+/* Watermark on preview images */
+.wm{position:absolute;right:8px;bottom:8px;display:flex;align-items:center;gap:5px;font-family:"Fredoka",sans-serif;
+  font-size:11px;font-weight:600;color:var(--ink);opacity:.28}
+.wm svg{width:16px;height:16px}
+
+@media(max-width:880px){.menu{display:none}}
