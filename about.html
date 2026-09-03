@@ -33,7 +33,12 @@
   .v p{color:var(--muted);font-size:14px}
   .cta{text-align:center;padding:44px 0 10px}
   .cta h2{font-size:28px;margin-bottom:16px}
-  @media(max-width:880px){.hero{grid-template-columns:1fr}.photo{order:-1}.grid3{grid-template-columns:1fr}}
+  @media(max-width:880px){
+    .hero{grid-template-columns:1fr}
+    .photo{order:-1;max-width:320px;margin:0 auto;transform:rotate(-1.5deg)}
+    .intro h1{font-size:34px}
+    .grid3{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
