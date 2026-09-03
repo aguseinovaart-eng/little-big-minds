@@ -136,7 +136,7 @@
   .peek:hover{color:var(--terra)}
   .prow{display:flex;align-items:center;justify-content:space-between}
   .amt{font-family:"Fredoka",sans-serif;font-size:22px;font-weight:700}
-  .add{background:var(--sage);color:#fff;font-weight:800;font-size:14px;padding:9px 16px;border-radius:12px;border:2px solid #6f8f68}
+  .add{background:var(--sage);color:#fff;font-weight:800;font-size:14px;padding:9px 16px;border-radius:12px;border:2px solid #6f8f68;cursor:pointer;font-family:inherit}
   .soon{opacity:.82}
   .soon .thumb{background:#f0e6d2}
   .soon .add{background:#c9bda8;border-color:#b6a88f}
@@ -294,7 +294,7 @@
           <h3>Santa's Magical Mission</h3>
           <p>A festive set that grows thinking, counting &amp; little hands. Ages 3–5.</p>
           <a href="#" class="peek">✎ peek inside →</a>
-          <div class="prow"><span class="amt">€5.99</span><span class="add">Add to basket</span></div>
+          <div class="prow"><span class="amt">€5.99</span><button type="button" class="add" onclick="buyStripe(this)">Add to basket</button></div>
         </div>
       </div>
 
@@ -347,6 +347,25 @@
     <p style="margin-top:10px">Made with <span class="hand">love</span> in Poland 🇵🇱 · © 2026 Little Big Minds</p>
   </div>
 </footer>
+
+<script>
+  // "Add to basket" → create a Stripe Checkout session, then go to Stripe's secure page.
+  async function buyStripe(btn){
+    const original = btn.textContent;
+    btn.textContent = "…";
+    btn.disabled = true;
+    try{
+      const r = await fetch("/.netlify/functions/create-checkout", { method: "POST" });
+      const data = await r.json();
+      if(data.url){ window.location.href = data.url; return; }
+      alert("Hmm, checkout isn't ready yet: " + (data.error || "unknown error"));
+    }catch(e){
+      alert("Network error: " + e.message);
+    }
+    btn.textContent = original;
+    btn.disabled = false;
+  }
+</script>
 
 </body>
 </html>
