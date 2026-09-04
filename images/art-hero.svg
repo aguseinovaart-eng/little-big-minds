@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" width="420" height="360" role="img" aria-label="Watercolour illustration of a child drawing at a table">
+  <defs>
+    <filter id="h-wcf" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="4" seed="15" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="h-wcf2" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="5" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="h-soft"><feGaussianBlur stdDeviation="12"/></filter>
+    <filter id="h-soft2"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="h-grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" result="g"/>
+      <feColorMatrix in="g" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.15"/></feComponentTransfer></filter>
+  </defs>
+
+  <!-- background washes -->
+  <g filter="url(#h-soft)" opacity=".42">
+    <ellipse cx="120" cy="120" rx="110" ry="92" fill="#cfdcc4"/>
+    <ellipse cx="300" cy="150" rx="118" ry="100" fill="#f2cdb8"/>
+    <ellipse cx="210" cy="300" rx="180" ry="60" fill="#e6d7ba"/>
+  </g>
+
+  <!-- sun -->
+  <g filter="url(#h-soft2)" opacity=".8"><circle cx="352" cy="60" r="30" fill="#f4d089"/></g>
+  <g stroke="#ddab5e" stroke-width="3.4" stroke-linecap="round" opacity=".85">
+    <path d="M352 16v-9M352 113v9M400 60h9M295 60h-9M386 26l6-6M312 100l-6 6M386 94l6 6M312 20l-6-6"/>
+  </g>
+
+  <!-- floating stars -->
+  <g opacity=".9">
+    <path d="M56 60l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#d98468"/>
+    <path d="M92 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#b389aa"/>
+    <path d="M300 118l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#8fb0c4"/>
+  </g>
+
+  <!-- plant in pot -->
+  <g filter="url(#h-wcf2)">
+    <path d="M46 300h44l-6 40H52Z" fill="#d98468" opacity=".9"/>
+    <path d="M68 300v-52" stroke="#7d9c76" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M68 268c-8-16-26-20-38-14 4 18 22 24 38 14Z" fill="#8aa683" opacity=".92"/>
+    <path d="M68 252c8-18 28-20 40-12-6 18-24 24-40 12Z" fill="#a3bd9a" opacity=".92"/>
+  </g>
+
+  <!-- child -->
+  <g filter="url(#h-wcf)">
+    <!-- body -->
+    <path d="M210 344c-40 0-64-16-64-40 0-30 26-50 64-50s64 20 64 50c0 24-24 40-64 40Z" fill="#c98d9e" opacity=".9"/>
+  </g>
+  <g filter="url(#h-wcf2)">
+    <!-- arms -->
+    <path d="M156 282c-18 6-28 20-28 34 12 6 26-2 36-18Z" fill="#c98d9e" opacity=".92"/>
+    <path d="M264 282c18 6 28 20 28 34-12 6-26-2-36-18Z" fill="#c98d9e" opacity=".92"/>
+    <!-- hair back -->
+    <path d="M210 130c-42 0-64 26-64 62 0 26 12 44 30 52-12-26-10-58 6-74 22 14 44 14 66 0 16 16 18 48 6 74 18-8 30-26 30-52 0-36-22-62-64-62Z" fill="#8f6a4f" opacity=".92"/>
+    <!-- face -->
+    <ellipse cx="210" cy="196" rx="52" ry="50" fill="#f7d9c2"/>
+    <!-- fringe -->
+    <path d="M158 190c0-34 22-54 52-54s52 20 52 54c-10-16-26-24-52-24s-42 8-52 24Z" fill="#a37a5b"/>
+  </g>
+
+  <!-- face features -->
+  <g fill="#4f453a">
+    <path d="M186 196c3-5 9-5 12 0" stroke="#4f453a" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+    <path d="M222 196c3-5 9-5 12 0" stroke="#4f453a" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M198 216c7 7 17 7 24 0" stroke="#4f453a" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <g opacity=".45" fill="#e0857f"><ellipse cx="172" cy="210" rx="12" ry="8"/><ellipse cx="248" cy="210" rx="12" ry="8"/></g>
+
+  <!-- paper sheet in front -->
+  <g filter="url(#h-wcf2)">
+    <path d="M120 296h180l10 62H110Z" fill="#fffdf7" stroke="#e8dac2" stroke-width="2.5"/>
+  </g>
+  <g stroke="#c9b393" stroke-width="3" stroke-linecap="round" fill="none" opacity=".8">
+    <path d="M140 314c14-8 26 8 40 0s26 8 40 0"/>
+    <path d="M146 334h44M206 334h50"/>
+  </g>
+  <path d="M258 312l14 12" stroke="#8aa683" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- crayon in hand -->
+  <g filter="url(#h-wcf2)">
+    <rect x="278" y="292" width="13" height="46" rx="4" transform="rotate(28 284 315)" fill="#d98468"/>
+    <path d="M296 336l12 5 1-15Z" fill="#f2ddc4"/>
+  </g>
+
+  <rect width="420" height="360" filter="url(#h-grain)" opacity=".5"/>
+</svg>

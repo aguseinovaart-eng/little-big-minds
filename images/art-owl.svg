@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Watercolour owl with glasses">
+  <defs>
+    <filter id="o-wcf" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="4" seed="21" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="o-wcf2" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="6" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="o-soft"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="o-grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" result="g"/>
+      <feColorMatrix in="g" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer></filter>
+  </defs>
+
+  <g filter="url(#o-soft)" opacity=".45">
+    <ellipse cx="150" cy="160" rx="98" ry="96" fill="#d9c58f"/>
+    <ellipse cx="150" cy="238" rx="86" ry="30" fill="#b7c8ae"/>
+  </g>
+
+  <!-- branch -->
+  <g filter="url(#o-wcf2)">
+    <path d="M40 244c40 8 180 8 220 0v10c-42 8-178 8-220 0Z" fill="#a9836a" opacity=".85"/>
+    <path d="M214 244c10-14 24-18 36-14-6 12-20 18-36 14Z" fill="#8aa683" opacity=".85"/>
+  </g>
+
+  <!-- wings -->
+  <g filter="url(#o-wcf)">
+    <path d="M96 148c-18 12-22 44-8 66 12-4 20-22 22-46Z" fill="#b98f6d" opacity=".9"/>
+    <path d="M204 148c18 12 22 44 8 66-12-4-20-22-22-46Z" fill="#b98f6d" opacity=".9"/>
+  </g>
+
+  <!-- body -->
+  <g filter="url(#o-wcf)">
+    <path d="M150 244c-40 0-64-26-64-66 0-44 26-76 64-76s64 32 64 76c0 40-24 66-64 66Z" fill="#c9a077" opacity=".9"/>
+    <path d="M150 240c-22 0-38-12-44-32 10-16 26-24 44-24s34 8 44 24c-6 20-22 32-44 32Z" fill="#f7ead6" opacity=".95"/>
+    <path d="M126 210c8 6 16 9 24 9s16-3 24-9" stroke="#d9c3a4" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M118 190c10 8 20 12 32 12s22-4 32-12" stroke="#d9c3a4" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- ear tufts -->
+  <g filter="url(#o-wcf2)">
+    <path d="M108 108 98 76l26 18Z" fill="#b98f6d" opacity=".9"/>
+    <path d="M192 108l10-32-26 18Z" fill="#b98f6d" opacity=".9"/>
+  </g>
+
+  <!-- face disc -->
+  <g filter="url(#o-wcf2)">
+    <ellipse cx="150" cy="146" rx="54" ry="42" fill="#f4e4cc" opacity=".95"/>
+  </g>
+
+  <!-- glasses + eyes -->
+  <g>
+    <circle cx="128" cy="146" r="19" fill="#fffdf7" stroke="#4f453a" stroke-width="3.4"/>
+    <circle cx="172" cy="146" r="19" fill="#fffdf7" stroke="#4f453a" stroke-width="3.4"/>
+    <path d="M147 146h6" stroke="#4f453a" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M109 142l-14-6M191 142l14-6" stroke="#4f453a" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="128" cy="147" r="7" fill="#4f453a"/>
+    <circle cx="172" cy="147" r="7" fill="#4f453a"/>
+    <circle cx="130.5" cy="144.5" r="2.4" fill="#fff"/>
+    <circle cx="174.5" cy="144.5" r="2.4" fill="#fff"/>
+  </g>
+
+  <!-- beak -->
+  <path d="M150 160c-6 0-9 4-9 8s4 9 9 9 9-5 9-9-3-8-9-8Z" fill="#ddab5e"/>
+  <g opacity=".4" fill="#e0857f"><ellipse cx="104" cy="164" rx="9" ry="6"/><ellipse cx="196" cy="164" rx="9" ry="6"/></g>
+
+  <!-- pencil -->
+  <g filter="url(#o-wcf2)">
+    <rect x="206" y="150" width="11" height="62" rx="3" transform="rotate(16 211 181)" fill="#e0b25e"/>
+    <path d="M203 214l10 3 1-14Z" fill="#f2e2c6"/>
+    <path d="M205 216l7 2-2-6Z" fill="#4f453a"/>
+  </g>
+
+  <rect width="300" height="300" filter="url(#o-grain)" opacity=".5"/>
+</svg>
