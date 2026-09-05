@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>All bundles · Little Big Minds</title>
+<meta name="description" content="Choose a developing bundle by your child's goals and interests. Screen-free printable activities, ages 3–5.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Gochi+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .phead{text-align:center;padding:44px 0 6px}
+  .phead h1{font-size:44px;font-weight:700;margin-bottom:8px}
+  .phead p{color:var(--muted);font-size:18px;max-width:560px;margin:0 auto}
+  .sec2{padding:34px 0 8px}
+  .sec2 h2{font-size:28px;font-weight:700;text-align:center;margin-bottom:4px}
+  .sec2 .squig{display:block;margin:4px auto 22px;width:130px;height:11px}
+
+  /* browse by goal */
+  .goals{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+  .goal{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:16px 8px;text-align:center;box-shadow:var(--shadow);transition:transform .15s ease;cursor:pointer}
+  .goal:hover{transform:translateY(-4px)}
+  .goal svg{width:34px;height:34px;margin-bottom:6px}
+  .goal b{font-family:"Fredoka",sans-serif;font-size:12.5px;display:block;line-height:1.25}
+
+  /* popular */
+  .pop{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .pcard{background:var(--card);border:2px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);position:relative;transition:transform .15s ease}
+  .pcard:hover{transform:translateY(-5px)}
+  .pcard .tag{position:absolute;top:10px;left:10px;z-index:2;background:var(--terra);color:#fff;font-family:"Gochi Hand",cursive;font-size:14px;padding:2px 10px;border-radius:8px}
+  .pcard img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-bottom:2px dashed var(--line)}
+  .pcard .pb{padding:14px}
+  .pcard .pb h3{font-size:16px;font-weight:600;margin-bottom:4px}
+  .pcard .pb .meta{color:var(--muted);font-size:12px;margin-bottom:8px}
+  .pcard .pb .r{display:flex;justify-content:space-between;align-items:center}
+  .pcard .pb .amt{font-family:"Fredoka",sans-serif;font-weight:700}
+  .miniadd{background:var(--sage);color:#fff;border:none;font-weight:800;font-size:12px;padding:7px 12px;border-radius:10px;cursor:pointer;font-family:inherit}
+
+  /* categories */
+  .catblock{margin-bottom:30px}
+  .catblock .h{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .catblock .h .em{width:44px;height:44px;border-radius:12px;display:grid;place-items:center}
+  .catblock .h b{font-family:"Fredoka",sans-serif;font-size:22px}
+  .catblock .h small{color:var(--muted);font-size:14px;display:block;font-weight:700}
+  .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .theme{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+  .theme .tt{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .theme b{font-family:"Fredoka",sans-serif;font-size:15px}
+  .theme .pp{color:var(--sage);font-size:12px;font-weight:800;white-space:nowrap}
+  .theme p{color:var(--muted);font-size:12.5px;margin-top:4px}
+  .theme .st{display:inline-block;margin-top:8px;font-family:"Gochi Hand",cursive;font-size:13px;color:var(--muted)}
+  .theme.live{border-color:var(--terra)}
+  .theme.live .st{color:var(--terra)}
+
+  /* promo */
+  .promo{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px 0 8px}
+  .pbox{border-radius:20px;padding:24px;box-shadow:var(--shadow);border:2px solid var(--line)}
+  .pbox.ref{background:linear-gradient(135deg,#fdeede,#fbf3e6)}
+  .pbox.bonus{background:linear-gradient(135deg,#e8f0e6,#f4f7ef)}
+  .pbox h3{font-family:"Fredoka",sans-serif;font-size:22px;margin-bottom:6px}
+  .pbox p{color:var(--muted);font-size:14px}
+  .pbox .big{font-family:"Gochi Hand",cursive;color:var(--terra);font-size:26px}
+
+  /* big footer */
+  .bigfoot{background:var(--ink);color:#e9dcc7;padding:50px 0 26px;margin-top:50px}
+  .bigfoot .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+  .bigfoot h4{font-family:"Fredoka",sans-serif;color:#fff;font-size:15px;margin-bottom:12px}
+  .bigfoot a,.bigfoot p{color:#cbbfad;font-size:13.5px;display:block;margin-bottom:7px;opacity:.92}
+  .bigfoot a:hover{color:var(--mustard)}
+  .bigfoot .brand{color:#fff;font-size:22px;margin-bottom:10px}
+  .bigfoot .soc{display:flex;gap:10px;margin-top:8px}
+  .bigfoot .soc a{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,.1);display:grid;place-items:center;margin:0}
+  .bigfoot .soc svg{width:18px;height:18px}
+  .bigfoot .bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:16px;text-align:center;font-size:12.5px}
+
+  @media(max-width:880px){
+    .goals{grid-template-columns:repeat(3,1fr)}
+    .pop{grid-template-columns:repeat(2,1fr)}
+    .themes{grid-template-columns:1fr}
+    .promo{grid-template-columns:1fr}
+    .bigfoot .cols{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="lbm-logo">
+    <circle cx="20" cy="25" r="12.5" fill="#fce3cf" stroke="#4f453a" stroke-width="2"/>
+    <circle cx="16.3" cy="25" r="1.7" fill="#4f453a"/><circle cx="23.7" cy="25" r="1.7" fill="#4f453a"/>
+    <path d="M16 29.5q4 4 8 0" stroke="#4f453a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M20 13V6" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M20 10c-2-3-6-3-8-2 1 3 5 4 8 2Z" fill="#8aa683"/>
+    <path d="M20 8c2-3 6-3 8-1-1 3-5 4-8 1Z" fill="#d98468"/>
+  </g>
+</defs></svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><svg width="42" height="42" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#fffdf7" stroke="#e8dac2" stroke-width="2"/><use href="#lbm-logo"/></svg> Little Big Minds</a>
+    <nav class="menu"><a href="catalog.html">All bundles</a><a href="index.html#cats">Themes</a><a href="about.html">About</a></nav>
+    <span class="lang">EN / PL</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="phead">
+    <h1>Choose a developing bundle</h1>
+    <p>For your child's goals <b>and</b> interests — screen-free printables, ages 3–5, ~30 pages each.</p>
+  </div>
+
+  <!-- Browse by goal -->
+  <section class="sec2">
+    <h2>Browse by goal</h2>
+    <svg class="squig" viewBox="0 0 130 11" preserveAspectRatio="none"><path d="M2 6c13-7 26 7 39 0s26-7 39 0 26 7 48 0" stroke="#8aa683" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>
+    <div class="goals">
+      <div class="goal"><svg viewBox="0 0 48 48" fill="none" stroke="#d98468" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 10c-6 0-10 4-10 9 0 4 2 5 2 9v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-3c0-4 2-5 2-9 0-5-4-9-10-9Z"/></svg><b>Logic &amp; thinking</b></div>
+      <div class="goal"><svg viewBox="0 0 48 48" fill="none" stroke="#8fb0c4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="21" r="12"/><path d="M30 30l8 8"/></svg><b>Attention &amp; memory</b></div>
+      <div class="goal"><svg viewBox="0 0 48 48" fill="none" stroke="#8aa683" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 34c8-2 8-18 16-18 6 0 8 6 12 6"/><path d="M34 22l4-2 2 4"/></svg><b>Fine motor &amp; writing</b></div>
+      <div class="goal"><svg viewBox="0 0 48 48" fill="none" stroke="#ddab5e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 38V12M14 20h10M14 28h16"/></svg><b>Numbers &amp; counting</b></div>
+      <div class="goal"><svg viewBox="0 0 48 48" fill="none" stroke="#b389aa" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8l4 8 9 1-7 7 2 9-8-5-8 5 2-9-7-7 9-1z"/></svg><b>Creativity</b></div>
+      <div class="goal"><svg viewBox="0 0 48 48" fill="none" stroke="#7a9e77" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14h28v18H24l-8 6v-6h-6z"/></svg><b>Language</b></div>
+    </div>
+  </section>
+
+  <!-- Popular -->
+  <section class="sec2">
+    <h2>People often choose</h2>
+    <svg class="squig" viewBox="0 0 130 11" preserveAspectRatio="none"><path d="M2 6c13-7 26 7 39 0s26-7 39 0 26 7 48 0" stroke="#d98468" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>
+    <div class="pop">
+      <div class="pcard"><span class="tag">popular</span><img src="images/cover-christmas.png" alt="Christmas"><div class="pb"><h3>Santa's Magical Mission</h3><div class="meta">Christmas · ~30 pages · ages 3–5</div><div class="r"><span class="amt">€5.99</span><button class="miniadd" onclick="location.href='product.html'">View</button></div></div></div>
+      <div class="pcard"><span class="tag">soon</span><img src="images/cover-halloween.png" alt="Halloween"><div class="pb"><h3>Spooky Smart Halloween</h3><div class="meta">Halloween · ~30 pages · ages 3–5</div><div class="r"><span class="amt hand" style="color:var(--muted)">soon</span><button class="miniadd" style="background:#c9bda8;border-color:#b6a88f">Notify</button></div></div></div>
+      <div class="pcard"><span class="tag">soon</span><img src="images/cover-dino.png" alt="Dino"><div class="pb"><h3>Dino Discovery</h3><div class="meta">Dinosaurs · ~30 pages · ages 3–5</div><div class="r"><span class="amt hand" style="color:var(--muted)">soon</span><button class="miniadd" style="background:#c9bda8;border-color:#b6a88f">Notify</button></div></div></div>
+      <div class="pcard"><span class="tag">soon</span><img src="images/art-whale.png" alt="Ocean" style="background:#eaf2f6;padding:14px"><div class="pb"><h3>Ocean Explorers</h3><div class="meta">Ocean · ~30 pages · ages 3–5</div><div class="r"><span class="amt hand" style="color:var(--muted)">soon</span><button class="miniadd" style="background:#c9bda8;border-color:#b6a88f">Notify</button></div></div></div>
+    </div>
+  </section>
+
+  <!-- Promo -->
+  <section class="promo">
+    <div class="pbox ref">
+      <h3>🎁 Bring a friend</h3>
+      <p>Share Little Big Minds with a friend — <span class="big">they get 50% off</span> any bundle, and so do you. (Referral codes coming with launch.)</p>
+    </div>
+    <div class="pbox bonus">
+      <h3>⏱️ Starter bonus</h3>
+      <p>Order within <b>24 hours</b> of your first visit and get a <span class="big">free mini-bundle</span> with your purchase. (Auto-applied at checkout — coming with launch.)</p>
+    </div>
+  </section>
+
+  <!-- Browse by theme -->
+  <section class="sec2" id="themes">
+    <h2>Browse by theme</h2>
+    <svg class="squig" viewBox="0 0 130 11" preserveAspectRatio="none"><path d="M2 6c13-7 26 7 39 0s26-7 39 0 26 7 48 0" stroke="#b389aa" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>
+
+    <div class="catblock">
+      <div class="h"><span class="em" style="background:#e6efe4">🌍</span><div><b>EXPLORE</b><small>The big wide world</small></div></div>
+      <div class="themes">
+        <div class="theme"><div class="tt"><b>🚀 Space</b><span class="pp">~30 pp</span></div><p>Skills: counting, logic, curiosity.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🐳 Ocean</b><span class="pp">~30 pp</span></div><p>Skills: matching, attention, nature.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🦕 Dinosaurs</b><span class="pp">~30 pp</span></div><p>Skills: sorting, memory, size &amp; number.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🗺️ Countries</b><span class="pp">~30 pp</span></div><p>Skills: observation, first geography.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🌿 Nature</b><span class="pp">~30 pp</span></div><p>Skills: classification, fine motor.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🔬 Science</b><span class="pp">~30 pp</span></div><p>Skills: cause &amp; effect, observation.</p><span class="st">soon</span></div>
+      </div>
+    </div>
+
+    <div class="catblock">
+      <div class="h"><span class="em" style="background:#f0e7f0">🧙</span><div><b>IMAGINE</b><small>Stories &amp; make-believe</small></div></div>
+      <div class="themes">
+        <div class="theme"><div class="tt"><b>📖 Fairy Tales</b><span class="pp">~30 pp</span></div><p>Skills: sequencing, language, imagination.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🐉 Dragons</b><span class="pp">~30 pp</span></div><p>Skills: drawing, fine motor, storytelling.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🦄 Unicorns</b><span class="pp">~30 pp</span></div><p>Skills: colors, patterns, creativity.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🏴‍☠️ Pirates</b><span class="pp">~30 pp</span></div><p>Skills: maps, logic, counting.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>✨ Magic</b><span class="pp">~30 pp</span></div><p>Skills: attention, spot-the-difference.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🔍 Detectives</b><span class="pp">~30 pp</span></div><p>Skills: deduction, logic, observation.</p><span class="st">soon</span></div>
+      </div>
+    </div>
+
+    <div class="catblock">
+      <div class="h"><span class="em" style="background:#f6efdd">🧠</span><div><b>LEARN</b><small>School-ready basics</small></div></div>
+      <div class="themes">
+        <div class="theme"><div class="tt"><b>🔢 Math</b><span class="pp">~30 pp</span></div><p>Skills: numbers, counting, first sums.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🧩 Logic</b><span class="pp">~30 pp</span></div><p>Skills: patterns, sorting, reasoning.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>✏️ Pre-writing</b><span class="pp">~30 pp</span></div><p>Skills: tracing, fine motor control.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🔤 Language</b><span class="pp">~30 pp</span></div><p>Skills: vocabulary, letters, matching.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🧠 Memory</b><span class="pp">~30 pp</span></div><p>Skills: recall, concentration.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>👀 Observation</b><span class="pp">~30 pp</span></div><p>Skills: differences, focus, attention.</p><span class="st">soon</span></div>
+      </div>
+    </div>
+
+    <div class="catblock">
+      <div class="h"><span class="em" style="background:#fbe6de">🎉</span><div><b>CELEBRATE</b><small>Seasons &amp; holidays</small></div></div>
+      <div class="themes">
+        <div class="theme live"><div class="tt"><b>🎄 Christmas</b><span class="pp">~30 pp</span></div><p>Skills: mixed — counting, mazes, motor.</p><span class="st"><a href="product.html">available · €5.99 →</a></span></div>
+        <div class="theme"><div class="tt"><b>🎃 Halloween</b><span class="pp">~30 pp</span></div><p>Skills: counting, mazes, attention.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🐣 Easter</b><span class="pp">~30 pp</span></div><p>Skills: matching, patterns, fine motor.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>💝 Valentine's</b><span class="pp">~30 pp</span></div><p>Skills: colors, shapes, kindness.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>☀️ Summer</b><span class="pp">~30 pp</span></div><p>Skills: nature, counting, outdoors.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🍂 Autumn</b><span class="pp">~30 pp</span></div><p>Skills: sorting, seasons, fine motor.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🎂 Birthday</b><span class="pp">~30 pp</span></div><p>Skills: counting, celebration, creativity.</p><span class="st">soon</span></div>
+      </div>
+    </div>
+
+    <div class="catblock">
+      <div class="h"><span class="em" style="background:#e5eef3">👩‍🚀</span><div><b>DISCOVER</b><small>People, body &amp; how things work</small></div></div>
+      <div class="themes">
+        <div class="theme"><div class="tt"><b>🦊 Animals</b><span class="pp">~30 pp</span></div><p>Skills: classification, sounds, matching.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🧍 Human Body</b><span class="pp">~30 pp</span></div><p>Skills: body parts, health, matching.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>👩‍🔧 Jobs</b><span class="pp">~30 pp</span></div><p>Skills: roles, vocabulary, imagination.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🚂 Transport</b><span class="pp">~30 pp</span></div><p>Skills: sorting, sounds, counting.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🔭 Scientists</b><span class="pp">~30 pp</span></div><p>Skills: curiosity, experiments, logic.</p><span class="st">soon</span></div>
+        <div class="theme"><div class="tt"><b>🎨 Artists</b><span class="pp">~30 pp</span></div><p>Skills: creativity, colors, fine motor.</p><span class="st">soon</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Big footer with all sections -->
+<footer class="bigfoot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand">🌱 Little Big Minds</div>
+        <p>Screen-free printable bundles that help little minds grow. Ages 3–5.</p>
+        <div class="soc">
+          <a href="#" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg></a>
+          <a href="#" title="Telegram"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21 4L3 11l6 2 2 6 3-4 4 3z"/></svg></a>
+          <a href="#" title="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8c-3 0-4 4-2 8M12 8c3 0 3 4 0 5"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="catalog.html">All bundles</a>
+        <a href="catalog.html#themes">Explore</a>
+        <a href="catalog.html#themes">Imagine</a>
+        <a href="catalog.html#themes">Learn</a>
+        <a href="catalog.html#themes">Celebrate</a>
+        <a href="catalog.html#themes">Discover</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About us</a>
+        <a href="#">Blog</a>
+        <a href="#">Partners</a>
+        <a href="#">Contact</a>
+        <a href="index.html#shop">FAQ</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="#">Telegram</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Ask a question</a>
+        <h4 style="margin-top:14px">Legal</h4>
+        <a href="#">Terms (Oferta)</a>
+        <a href="#">Privacy policy</a>
+      </div>
+    </div>
+    <div class="bottom">© 2026 Little Big Minds · Made with love in Poland 🇵🇱</div>
+  </div>
+</footer>
+</body>
+</html>
