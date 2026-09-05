@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Sample page: help Santa through the maze">
+  <rect width="300" height="300" fill="#fffdf7"/>
+  <rect x="10" y="10" width="280" height="280" rx="14" fill="#fff" stroke="#e8dac2" stroke-width="2"/>
+  <text x="150" y="42" text-anchor="middle" font-family="Fredoka, sans-serif" font-size="17" font-weight="600" fill="#c06b52">Help Santa reach the tree!</text>
+  <!-- maze -->
+  <g stroke="#8aa683" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="46" y="66" width="208" height="192" rx="6"/>
+    <path d="M46 108h150M96 66v72M96 138h158M146 138v90M196 108v110M46 178h100M146 178v-30M196 258v-40"/>
+  </g>
+  <!-- start santa -->
+  <circle cx="32" cy="87" r="12" fill="#d98468"/><path d="M26 82c2-4 10-4 12 0Z" fill="#fff"/>
+  <text x="20" y="112" font-family="Gochi Hand, cursive" font-size="13" fill="#93826f">start</text>
+  <!-- end tree -->
+  <path d="M268 236l-12 20h24Z" fill="#8aa683"/><path d="M268 224l-9 16h18Z" fill="#9bbf90"/>
+  <path d="M268 210l-6 12h12Z" fill="#a3bd9a"/>
+  <path d="M60 90c30 20 30 40 60 46s40 30 70 34 40 20 72 24" stroke="#ddab5e" stroke-width="3" fill="none" stroke-dasharray="2 8" stroke-linecap="round" opacity=".8"/>
+</svg>
