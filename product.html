@@ -4,6 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Santa's Magical Mission · Little Big Minds</title>
+<meta name="description" content="Santa's Magical Mission — a festive printable activity bundle for kids aged 3–5. Instant PDF, print at home.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Santa's Magical Mission · Little Big Minds">
+<meta property="og:description" content="A festive printable activity bundle for kids aged 3–5. Instant PDF, print at home.">
+<meta property="og:image" content="https://starlit-douhua-5ea50c.netlify.app/images/og-image.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Gochi+Hand&display=swap" rel="stylesheet">
@@ -17,6 +24,8 @@
     background-image:radial-gradient(200px 160px at 30% 25%, rgba(138,166,131,.20), transparent 70%),
       radial-gradient(200px 160px at 75% 72%, rgba(217,132,104,.18), transparent 70%);}
   .gallery .cover svg.big{width:60%;height:60%}
+  .gallery .cover{padding:0;overflow:hidden}
+  .gallery .cover img.cover-img{width:100%;height:100%;object-fit:cover;display:block}
   .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
   .thumbs .t{position:relative;background:var(--card);border:2px dashed var(--line);border-radius:14px;
     aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden}
@@ -75,7 +84,7 @@
     <!-- Gallery (frames ready for your real cover + sample pages) -->
     <div class="gallery">
       <div class="cover">
-        <svg class="big" viewBox="0 0 48 48" fill="none" stroke="#8aa683" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42V14"/><path d="M24 14l-8-8-4 4 8 8M24 14l8-8 4 4-8 8"/><path d="M12 20h24l-3 22H15z"/></svg>
+        <img class="cover-img" src="images/cover-christmas.png" alt="Santa's Magical Mission cover">
         <span class="wm"><svg viewBox="0 0 40 40"><use href="#lbm-logo"/></svg>Little Big Minds</span>
       </div>
       <div class="thumbs">

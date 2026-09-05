@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Dinosaur watercolour cover">
+  <defs>
+    <filter id="d1" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="4" seed="18" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="d2" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="ds"><feGaussianBlur stdDeviation="11"/></filter>
+    <filter id="dg"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="g"/><feColorMatrix in="g" type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.1"/></feComponentTransfer></filter>
+  </defs>
+  <rect width="400" height="300" fill="#eaf1e6"/>
+  <g filter="url(#ds)" opacity=".5">
+    <ellipse cx="200" cy="150" rx="160" ry="120" fill="#d6e6cf"/>
+    <ellipse cx="200" cy="250" rx="200" ry="60" fill="#c6dcbd"/>
+    <circle cx="330" cy="70" r="34" fill="#f4e3b0"/>
+  </g>
+  <!-- ferns -->
+  <g filter="url(#d2)" stroke="#7fa06f" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8">
+    <path d="M50 240c0-30 10-46 6-70M50 200c-10-6-16-16-18-26M50 210c10-6 16-16 18-26M50 190c-8-6-12-14-12-22"/>
+  </g>
+  <!-- dino -->
+  <g filter="url(#d1)">
+    <path d="M120 236c-6-30 4-60 34-74 22-10 48-6 64 10 8-2 16 2 20 10 4-2 10 0 12 6-6 6-16 6-22 0-2 10-10 18-20 22 4 8 2 18-2 26Z" fill="#8fbf86"/>
+    <!-- belly -->
+    <path d="M150 236c-4-16 0-32 12-42 12 8 16 26 12 42Z" fill="#dff0d6"/>
+    <!-- back plates -->
+    <path d="M150 168l8-16 8 16Z" fill="#6f9a66"/><path d="M170 158l8-16 8 16Z" fill="#6f9a66"/><path d="M190 156l7-14 7 14Z" fill="#6f9a66"/>
+    <!-- legs -->
+    <path d="M138 232v10h12v-10ZM168 234v10h12v-10Z" fill="#7bab72"/>
+  </g>
+  <!-- eye + smile -->
+  <circle cx="214" cy="182" r="4.6" fill="#4f453a"/><circle cx="215.5" cy="180.5" r="1.6" fill="#fff"/>
+  <path d="M206 196c6 5 14 5 20 1" stroke="#4f453a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <ellipse cx="202" cy="192" rx="8" ry="5" fill="#e0857f" opacity=".4"/>
+  <!-- egg -->
+  <g filter="url(#d2)"><ellipse cx="300" cy="224" rx="20" ry="26" fill="#f4ead3" stroke="#dccaa2" stroke-width="2"/><path d="M282 220l8-6 6 8 8-8 6 8 8-6" stroke="#c9b48a" stroke-width="2.4" fill="none" stroke-linejoin="round"/></g>
+  <!-- little star -->
+  <path d="M330 150l4 9 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#ddab5e"/>
+  <rect width="400" height="300" filter="url(#dg)" opacity=".5"/>
+</svg>

@@ -4,6 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Little Big Minds</title>
+<meta name="description" content="Warm, screen-free printable activity bundles that help little minds grow. Ages 3–5.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Little Big Minds">
+<meta property="og:description" content="Screen-free printable activity bundles that help little minds grow. Ages 3–5.">
+<meta property="og:image" content="https://starlit-douhua-5ea50c.netlify.app/images/og-image.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Gochi+Hand&display=swap" rel="stylesheet">
@@ -87,6 +94,7 @@
   .prod .washi{position:absolute;top:-9px;left:26px;width:74px;height:22px;background:var(--mustard);opacity:.85;transform:rotate(-4deg);border-radius:2px;z-index:2}
   .thumb{aspect-ratio:4/3;display:grid;place-items:center;border-bottom:2px dashed var(--line);position:relative;overflow:hidden}
   .thumb .art{width:88px;height:88px}
+  .thumb img.cover{width:100%;height:100%;object-fit:cover;display:block}
   .thumb .wm{position:absolute;right:8px;bottom:8px;display:flex;align-items:center;gap:5px;font-family:"Fredoka",sans-serif;font-size:11px;font-weight:600;color:var(--ink);opacity:.28}
   .thumb .wm svg{width:16px;height:16px}
   .prod .b{padding:18px}
@@ -106,6 +114,22 @@
   .banner .seal{width:96px;height:96px;margin:0 auto 12px}
   .banner h2{font-size:30px;font-weight:700}
   .banner p{color:var(--muted);max-width:520px;margin:8px auto 0;font-size:17px}
+
+  .how{padding:44px 0 10px}
+  .how .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:28px 20px 24px;text-align:center;box-shadow:var(--shadow);position:relative}
+  .step .n{position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:34px;height:34px;border-radius:50%;background:var(--terra);color:#fff;font-family:"Fredoka",sans-serif;font-weight:700;display:grid;place-items:center;border:2px solid var(--terra-d)}
+  .step svg{width:48px;height:48px;margin:6px 0 10px}
+  .step b{font-family:"Fredoka",sans-serif;display:block;font-size:18px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:14px}
+  .faq{max-width:720px;margin:0 auto;padding:6px 22px 40px}
+  .faq details{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:2px 18px;margin-bottom:12px;box-shadow:var(--shadow)}
+  .faq summary{cursor:pointer;font-weight:800;padding:15px 0;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--terra);font-size:22px;font-weight:700}
+  .faq details[open] summary::after{content:"–"}
+  .faq p{color:var(--muted);padding:0 0 16px;margin:0}
+  @media(max-width:880px){.how .grid3{grid-template-columns:1fr}}
 
   footer{background:var(--ink);color:#f3e9d8;padding:46px 0;text-align:center}
   footer .brand{justify-content:center;color:#fff;margin-bottom:8px}
@@ -226,8 +250,8 @@
     <div class="grid">
       <div class="prod">
         <span class="washi"></span>
-        <a href="product.html" class="thumb" style="background:#fdeede">
-          <svg class="art" viewBox="0 0 48 48" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42V14"/><path d="M24 14l-8-8-4 4 8 8M24 14l8-8 4 4-8 8"/><path d="M12 20h24l-3 22H15z"/></svg>
+        <a href="product.html" class="thumb">
+          <img class="cover" src="images/cover-christmas.png" alt="Santa's Magical Mission cover">
           <span class="wm"><svg viewBox="0 0 40 40"><use href="#lbm-logo"/></svg>Little Big Minds</span>
         </a>
         <div class="b">
@@ -239,7 +263,7 @@
       </div>
 
       <div class="prod soon">
-        <div class="thumb"><svg class="art" viewBox="0 0 48 48" fill="none" stroke="#c06b52" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 12c8 0 14 7 14 16 0 4-2 6-5 6s-3-3-6-3-3 3-6 3-5-2-5-6c0-9 6-16 8-16Z"/><path d="M24 12c0-3 3-4 3-4"/><circle cx="19" cy="26" r="1.6" fill="#c06b52"/><circle cx="29" cy="26" r="1.6" fill="#c06b52"/></svg>
+        <div class="thumb"><img class="cover" src="images/cover-halloween.png" alt="Halloween bundle cover">
           <span class="wm"><svg viewBox="0 0 40 40"><use href="#lbm-logo"/></svg>Little Big Minds</span></div>
         <div class="b">
           <h3>Spooky Smart Halloween</h3>
@@ -249,13 +273,40 @@
       </div>
 
       <div class="prod soon">
-        <div class="thumb"><svg class="art" viewBox="0 0 48 48" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30c0-8 7-14 16-14 7 0 12 4 14 9 3 0 4 2 4 4 0 3-2 4-5 4H14c-4 0-6-3-6-7Z"/><path d="M18 22c0-3 2-6 2-6M28 20c1-3 4-4 4-4"/><circle cx="15" cy="27" r="1.4" fill="#8aa683"/></svg>
+        <div class="thumb"><img class="cover" src="images/cover-dino.png" alt="Dino bundle cover">
           <span class="wm"><svg viewBox="0 0 40 40"><use href="#lbm-logo"/></svg>Little Big Minds</span></div>
         <div class="b">
           <h3>Dino Discovery</h3>
           <p data-en="Coming soon — a roar-some world of matching, tracing &amp; logic." data-pl="Wkrótce — świat dopasowywania, rysowania po śladzie i logiki.">Coming soon — a roar-some world of matching, tracing &amp; logic.</p>
           <div class="prow"><span class="amt hand" style="color:var(--muted)" data-en="soon" data-pl="wkrótce">soon</span><button type="button" class="add" data-en="Notify me" data-pl="Powiadom mnie">Notify me</button></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec how">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 data-en="How it works" data-pl="Jak to działa">How it works</h2>
+      <svg class="squig" viewBox="0 0 150 12" preserveAspectRatio="none"><path d="M2 6c15-8 30 8 45 0s30-8 45 0 30 8 56 0" stroke="#8fb0c4" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+      <p data-en="From click to crayons in minutes." data-pl="Od kliknięcia do kredek w kilka minut.">From click to crayons in minutes.</p>
+    </div>
+    <div class="grid3">
+      <div class="step"><div class="n">1</div>
+        <svg viewBox="0 0 48 48" fill="none" stroke="#d98468" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16h28v22H10z"/><path d="M10 16l14 12 14-12"/></svg>
+        <b data-en="Choose a bundle" data-pl="Wybierz zestaw">Choose a bundle</b>
+        <p data-en="Pick a theme your child will love." data-pl="Wybierz temat, który pokocha dziecko.">Pick a theme your child will love.</p>
+      </div>
+      <div class="step"><div class="n">2</div>
+        <svg viewBox="0 0 48 48" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8v22"/><path d="M15 23l9 9 9-9"/><path d="M10 38h28"/></svg>
+        <b data-en="Download instantly" data-pl="Pobierz od razu">Download instantly</b>
+        <p data-en="Get your PDF the moment you pay." data-pl="Dostajesz PDF od razu po opłacie.">Get your PDF the moment you pay.</p>
+      </div>
+      <div class="step"><div class="n">3</div>
+        <svg viewBox="0 0 48 48" fill="none" stroke="#ddab5e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="8" width="24" height="12" rx="2"/><rect x="8" y="20" width="32" height="14" rx="2"/><rect x="14" y="30" width="20" height="10"/></svg>
+        <b data-en="Print &amp; play" data-pl="Drukuj i baw się">Print &amp; play</b>
+        <p data-en="Print at home, again and again." data-pl="Drukuj w domu, ile tylko chcesz.">Print at home, again and again.</p>
       </div>
     </div>
   </div>
@@ -269,6 +320,20 @@
     </svg>
     <h2 data-en="Made to grow curious, capable kids" data-pl="Tworzone, by rozwijać ciekawe i zdolne dzieci">Made to grow curious, capable kids</h2>
     <p data-en="Every bundle is hand-designed to build real skills through play — the kind of learning that sticks, without a single screen." data-pl="Każdy zestaw jest ręcznie projektowany, by rozwijać prawdziwe umiejętności przez zabawę — bez ani jednego ekranu.">Every bundle is hand-designed to build real skills through play — the kind of learning that sticks, without a single screen.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-h">
+    <h2 data-en="Questions &amp; answers" data-pl="Pytania i odpowiedzi">Questions &amp; answers</h2>
+    <svg class="squig" viewBox="0 0 150 12" preserveAspectRatio="none"><path d="M2 6c15-8 30 8 45 0s30-8 45 0 30 8 56 0" stroke="#b389aa" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+  </div>
+  <div class="faq">
+    <details open><summary data-en="What will I get?" data-pl="Co dostanę?">What will I get?</summary><p data-en="A printable PDF file that you download instantly after payment — no waiting, nothing shipped." data-pl="Plik PDF do druku, który pobierasz od razu po opłacie — bez czekania i wysyłki.">A printable PDF file that you download instantly after payment — no waiting, nothing shipped.</p></details>
+    <details><summary data-en="What age is it for?" data-pl="Dla jakiego wieku?">What age is it for?</summary><p data-en="The bundles are designed for children aged 3–5." data-pl="Zestawy są zaprojektowane dla dzieci w wieku 3–5 lat.">The bundles are designed for children aged 3–5.</p></details>
+    <details><summary data-en="Can I print it more than once?" data-pl="Czy mogę drukować wiele razy?">Can I print it more than once?</summary><p data-en="Yes! Print as many copies as you like for your own family." data-pl="Tak! Drukuj tyle kopii, ile chcesz, dla własnej rodziny.">Yes! Print as many copies as you like for your own family.</p></details>
+    <details><summary data-en="How do I pay?" data-pl="Jak zapłacić?">How do I pay?</summary><p data-en="Securely by card at checkout — quick and safe." data-pl="Bezpiecznie kartą przy zamówieniu — szybko i pewnie.">Securely by card at checkout — quick and safe.</p></details>
+    <details><summary data-en="Need help?" data-pl="Potrzebujesz pomocy?">Need help?</summary><p data-en="Just reach out — we're always happy to help you and your little one." data-pl="Napisz do nas — zawsze chętnie pomożemy Tobie i Twojemu maluchowi.">Just reach out — we're always happy to help you and your little one.</p></details>
   </div>
 </section>
 
