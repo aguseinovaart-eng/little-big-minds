@@ -129,6 +129,15 @@
   .faq summary::after{content:"+";color:var(--terra);font-size:22px;font-weight:700}
   .faq details[open] summary::after{content:"–"}
   .faq p{color:var(--muted);padding:0 0 16px;margin:0}
+  .ask-btn{position:fixed;right:20px;bottom:20px;z-index:60;background:var(--terra);color:#fff;border:2px solid var(--terra-d);border-radius:999px;padding:13px 20px;font-family:"Nunito",sans-serif;font-weight:800;font-size:15px;box-shadow:var(--shadow);cursor:pointer}
+  .ask-panel{position:fixed;right:20px;bottom:78px;z-index:60;width:300px;max-width:calc(100vw - 40px);background:var(--card);border:2px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px;display:none}
+  .ask-panel.open{display:block}
+  .ask-panel h4{font-family:"Fredoka",sans-serif;font-size:17px;margin-bottom:10px}
+  .ask-panel input,.ask-panel textarea{width:100%;border:2px solid var(--line);border-radius:10px;padding:9px 11px;font-family:inherit;font-size:14px;margin-bottom:9px;background:#fffdf7}
+  .ask-panel textarea{min-height:70px;resize:vertical}
+  .ask-panel .snd{width:100%;background:var(--sage);color:#fff;border:2px solid #6f8f68;border-radius:12px;padding:11px;font-weight:800;font-family:inherit;cursor:pointer}
+  .ask-alt{margin-top:10px;font-size:12px;color:var(--muted);text-align:center}
+  .ask-ok{display:none;color:var(--sage);font-weight:800;text-align:center;padding:14px 0}
   @media(max-width:880px){.how .grid3{grid-template-columns:1fr}}
 
   footer{background:var(--ink);color:#f3e9d8;padding:46px 0;text-align:center}
@@ -333,6 +342,7 @@
     <details><summary data-en="What age is it for?" data-pl="Dla jakiego wieku?">What age is it for?</summary><p data-en="The bundles are designed for children aged 3–5." data-pl="Zestawy są zaprojektowane dla dzieci w wieku 3–5 lat.">The bundles are designed for children aged 3–5.</p></details>
     <details><summary data-en="Can I print it more than once?" data-pl="Czy mogę drukować wiele razy?">Can I print it more than once?</summary><p data-en="Yes! Print as many copies as you like for your own family." data-pl="Tak! Drukuj tyle kopii, ile chcesz, dla własnej rodziny.">Yes! Print as many copies as you like for your own family.</p></details>
     <details><summary data-en="How do I pay?" data-pl="Jak zapłacić?">How do I pay?</summary><p data-en="Securely by card at checkout — quick and safe." data-pl="Bezpiecznie kartą przy zamówieniu — szybko i pewnie.">Securely by card at checkout — quick and safe.</p></details>
+    <details><summary data-en="Does it really help my child develop?" data-pl="Czy to naprawdę rozwija dziecko?">Does it really help my child develop?</summary><p data-en="Yes — the activity types are backed by child-development research: fine motor skills predict school achievement, motor and thinking are closely linked, and puzzle play builds spatial skills that support maths." data-pl="Tak — rodzaje zadań są poparte badaniami rozwoju dziecka: mała motoryka przewiduje osiągnięcia szkolne, ruch i myślenie są powiązane, a układanki rozwijają myślenie przestrzenne, które wspiera matematykę.">Yes — the activity types are backed by child-development research: fine motor skills predict school achievement, motor and thinking are closely linked, and puzzle play builds spatial skills that support maths.</p><p style="font-size:12.5px"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3399936/" target="_blank" style="color:var(--terra)">Cameron 2012</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9453748/" target="_blank" style="color:var(--terra)">Han 2022</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/22040312/" target="_blank" style="color:var(--terra)">Levine 2012</a></p></details>
     <details><summary data-en="Need help?" data-pl="Potrzebujesz pomocy?">Need help?</summary><p data-en="Just reach out — we're always happy to help you and your little one." data-pl="Napisz do nas — zawsze chętnie pomożemy Tobie i Twojemu maluchowi.">Just reach out — we're always happy to help you and your little one.</p></details>
   </div>
 </section>
@@ -347,7 +357,29 @@
   </div>
 </footer>
 
+<button class="ask-btn" onclick="toggleAsk()" data-en="💬 Ask a question" data-pl="💬 Zadaj pytanie">💬 Ask a question</button>
+<div class="ask-panel" id="askPanel">
+  <h4 data-en="Ask us anything 💛" data-pl="Zapytaj nas o wszystko 💛">Ask us anything 💛</h4>
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return sendAsk(this)">
+    <input type="hidden" name="form-name" value="contact">
+    <p style="display:none"><label>Don't fill this: <input name="bot-field"></label></p>
+    <input name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="message" placeholder="Your question…" required></textarea>
+    <button type="submit" class="snd" data-en="Send" data-pl="Wyślij">Send</button>
+  </form>
+  <div class="ask-ok" id="askOk" data-en="Thank you! We'll reply soon 💛" data-pl="Dziękujemy! Odpowiemy wkrótce 💛">Thank you! We'll reply soon 💛</div>
+</div>
+
 <script>
+  function toggleAsk(){ document.getElementById('askPanel').classList.toggle('open'); }
+  function sendAsk(form){
+    var body = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: body })
+      .then(function(){ form.style.display='none'; document.getElementById('askOk').style.display='block'; })
+      .catch(function(){ alert('Oops — please try again or write us on Telegram.'); });
+    return false;
+  }
   function setLang(l){
     document.querySelectorAll('[data-en]').forEach(function(e){
       var t = e.getAttribute('data-' + l);
