@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /success.html
+Disallow: /.netlify/functions/
+
+Sitemap: https://starlit-douhua-5ea50c.netlify.app/sitemap.xml
