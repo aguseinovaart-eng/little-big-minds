@@ -28,6 +28,8 @@
   .card2 input{width:100%;border:2px solid var(--line);border-radius:12px;padding:13px 14px;font-family:inherit;font-size:15px;margin-bottom:12px;background:#fffdf7}
   .card2 .snd{width:100%;background:var(--terra);color:#fff;border:2px solid var(--terra-d);border-radius:14px;padding:14px;font-weight:800;font-family:inherit;font-size:16px;cursor:pointer}
   .card2 .fine{color:var(--muted);font-size:12px;margin-top:10px;text-align:center}
+  .card2 .dl{display:block;width:100%;text-align:center;font-size:17px;box-sizing:border-box}
+  .card2 .sep{border:none;border-top:2px dashed var(--line);margin:20px 0}
   .done{text-align:center}
   .done .big{font-family:"Gochi Hand",cursive;color:var(--sage);font-size:22px;margin-bottom:8px}
   .art-card2{background:linear-gradient(135deg,#fff,#fbf5ea);border:2px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:18px;transform:rotate(1.5deg)}
@@ -70,19 +72,21 @@
       <p class="lead" data-en="A little taster from Santa's Magical Mission: a maze, a counting page and a matching game. Print at home and see if your little one loves them." data-pl="Mała próbka z „Santa's Magical Mission”: labirynt, strona z liczeniem i gra w dopasowywanie. Wydrukuj w domu i sprawdź, czy maluch je pokocha.">A little taster from Santa's Magical Mission: a maze, a counting page and a matching game. Print at home and see if your little one loves them.</p>
 
       <div class="card2">
-        <h2 data-en="Where should we send it?" data-pl="Gdzie wysłać próbkę?">Where should we send it?</h2>
-        <p class="sub" data-en="Pop in your email and the free sample is yours." data-pl="Zostaw email, a próbka jest Twoja.">Pop in your email and the free sample is yours.</p>
+        <a class="btn dl" href="free-sample.pdf" download onclick="track('free_sample_download')" data-en="⬇ Download the free sample" data-pl="⬇ Pobierz darmową próbkę">⬇ Download the free sample</a>
+        <p class="fine" data-en="Free PDF · 3 activities · print at home" data-pl="Darmowy PDF · 3 zadania · drukuj w domu">Free PDF · 3 activities · print at home</p>
+        <hr class="sep">
+        <h2 data-en="Want new bundles by email?" data-pl="Chcesz wieści o nowych zestawach?">Want new bundles by email?</h2>
+        <p class="sub" data-en="Optional — leave your email and we'll tell you when new bundles arrive." data-pl="Opcjonalnie — zostaw email, a damy znać o nowych zestawach.">Optional — leave your email and we'll tell you when new bundles arrive.</p>
         <form name="free-sample" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return sendFree(this)">
           <input type="hidden" name="form-name" value="free-sample">
           <p hidden><label>Don't fill: <input name="bot-field"></label></p>
           <input type="email" name="email" required placeholder="you@email.com" aria-label="Your email">
-          <button type="submit" class="snd" data-en="Send me the free sample" data-pl="Wyślij mi próbkę">Send me the free sample</button>
+          <button type="submit" class="snd" data-en="Keep me posted" data-pl="Informujcie mnie">Keep me posted</button>
         </form>
         <div id="freeDone" class="done" hidden>
-          <p class="big" data-en="Yay! Your sample is ready 💛" data-pl="Hurra! Próbka gotowa 💛">Yay! Your sample is ready 💛</p>
-          <a class="btn" href="free-sample.pdf" download onclick="track('free_sample_download')" data-en="⬇ Download the free sample" data-pl="⬇ Pobierz darmową próbkę">⬇ Download the free sample</a>
+          <p class="big" data-en="Thanks! You're on the list 💛" data-pl="Dziękujemy! Jesteś na liście 💛">Thanks! You're on the list 💛</p>
         </div>
-        <p class="fine" data-en="No spam, ever. Just the sample and the occasional new bundle." data-pl="Żadnego spamu. Tylko próbka i czasem nowy zestaw.">No spam, ever. Just the sample and the occasional new bundle.</p>
+        <p class="fine" data-en="No spam, ever. Unsubscribe any time." data-pl="Żadnego spamu. Możesz zrezygnować w każdej chwili.">No spam, ever. Unsubscribe any time.</p>
       </div>
     </div>
 
