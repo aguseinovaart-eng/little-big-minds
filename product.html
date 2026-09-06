@@ -53,7 +53,18 @@
   .inside .b svg{width:46px;height:46px;margin-bottom:8px}
   .inside .b b{font-family:"Fredoka",sans-serif;display:block;font-size:15px}
   .inside .b small{color:var(--muted);font-size:12px}
-  @media(max-width:880px){.product{grid-template-columns:1fr}.inside .grid4{grid-template-columns:repeat(2,1fr)}}
+  .facts{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}
+  .fact{background:#fff;border:2px solid var(--line);border-radius:12px;padding:8px 14px;font-weight:800;font-size:14px;line-height:1.2}
+  .fact small{color:var(--muted);font-weight:700;display:block;font-size:11px}
+  .spec{padding:30px 0 0}
+  .spec .card{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:22px 24px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .spec h2{font-size:22px;margin-bottom:12px}
+  .spec ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .spec li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px}
+  .spec li svg{width:19px;height:19px;flex:0 0 auto;margin-top:2px}
+  .spec p{color:var(--muted);font-size:14.5px;margin-bottom:6px}
+  .spec .fine{font-size:12.5px;color:var(--muted)}
+  @media(max-width:880px){.product{grid-template-columns:1fr}.inside .grid4{grid-template-columns:repeat(2,1fr)}.spec ul{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -100,12 +111,17 @@
       <span class="tape">✿ screen-free · ages 3–5</span>
       <h1>Santa's Magical Mission</h1>
       <div class="price">€5.99</div>
-      <p class="desc">🎄 A festive set of Christmas activities that grow your child's thinking, logic, counting and fine motor skills — printable at home, zero screens. <br><span class="hand" style="color:var(--sage)">Świąteczny zestaw zadań dla dzieci 3–5 lat.</span></p>
+      <div class="facts">
+        <span class="fact">Ages 3–5<small>early years</small></span>
+        <span class="fact">30 activities<small>31-page PDF</small></span>
+        <span class="fact">A4 · PDF<small>instant download</small></span>
+      </div>
+      <p class="desc">30 printable Christmas activities for practising counting, fine-motor control, attention and early logic — ready to print at home, no screens.</p>
       <ul class="benefits">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Match pairs, spot the difference & find the odd one</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Counting, connect-the-dots & mazes</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Tracing & pre-writing practice</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Cut-and-glue crafts & shadow matching</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Counting, number tracing &amp; connect-the-dots</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Tracing, lacing, cutting &amp; gluing (fine motor)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Spot-the-difference, matching &amp; odd-one-out</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Mazes, patterns, sequencing &amp; symmetry</li>
       </ul>
       <div class="buyrow">
         <button type="button" class="add" onclick="buyStripe(this)">Add to basket · €5.99</button>
@@ -128,6 +144,44 @@
       <div class="b"><svg viewBox="0 0 48 48" fill="none" stroke="#ddab5e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 36V12M12 20h10M12 28h16"/><circle cx="34" cy="16" r="4"/></svg><b>Numbers</b><small>Counting & dots</small></div>
       <div class="b"><svg viewBox="0 0 48 48" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 34c8-2 8-18 16-18 6 0 8 6 12 6"/><path d="M34 22l4-2 2 4"/></svg><b>Fine motor</b><small>Tracing & writing</small></div>
       <div class="b"><svg viewBox="0 0 48 48" fill="none" stroke="#8fb0c4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8l6 6-6 6M20 14h14"/><path d="M34 40l-6-6 6-6M28 34H14"/></svg><b>Logic</b><small>Mazes & shadows</small></div>
+    </div>
+  </section>
+
+  <!-- Product spec details -->
+  <section class="spec">
+    <div class="card">
+      <h2>What you'll need</h2>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> A home printer</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> A4 paper</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Pencil &amp; crayons or markers</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Child-safe scissors</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> A glue stick</li>
+      </ul>
+      <p class="fine">Scissors &amp; glue are only needed for a few cut-and-glue pages.</p>
+    </div>
+    <div class="card">
+      <h2>Format &amp; printing</h2>
+      <p>A4 PDF — 31 pages (cover + 30 activities). Downloaded instantly after checkout.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Print in colour for best results</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Print single-sided</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Set scale to 100% / "fit to page"</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> Opens on any device with a free PDF reader</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Age &amp; independence</h2>
+      <p>Made for ages 3–5. Most activities can be done fairly independently by 4–5 year-olds; the cutting &amp; gluing pages are best with a grown-up, and 3-year-olds will enjoy the whole set with a little help.</p>
+      <p class="fine">A guide based on the activity types — every child is different.</p>
+    </div>
+    <div class="card">
+      <h2>How long it takes</h2>
+      <p>Roughly 5–10 minutes per activity (a rough guide, not a rule) — best enjoyed over many small sittings rather than all at once.</p>
+    </div>
+    <div class="card">
+      <h2>Licence</h2>
+      <p>For personal &amp; family use. Print as many copies as you like for your own children. Please don't resell, share or redistribute the files.</p>
     </div>
   </section>
 </main>
