@@ -34,11 +34,11 @@
       <path d="M48 8l6 6 8-3 3 8 8 3-3 8 6 6-6 6 3 8-8 3-3 8-8-3-6 6-6-6-8 3-3-8-8-3 3-8-6-6 6-6-3-8 8-3 3-8 8 3z" fill="#f1e6d2" stroke="#ddab5e" stroke-width="2.5" stroke-linejoin="round"/>
       <path d="M34 49l9 9 20-22" stroke="#8aa683" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    <p class="hand">yay! thank you 💛</p>
-    <h1>Your bundle is ready!</h1>
-    <p>Thanks for your order. Click below to download your printable — you can print it as many times as you like.</p>
-    <a id="dl" class="btn" href="#">⬇ Download my bundle</a>
-    <a class="home" href="/">← Back to Little Big Minds</a>
+    <p class="hand" data-en="yay! thank you 💛" data-pl="hurra! dziękujemy 💛">yay! thank you 💛</p>
+    <h1 data-en="Your bundle is ready!" data-pl="Twój zestaw jest gotowy!">Your bundle is ready!</h1>
+    <p data-en="Thanks for your order. Click below to download your printable — you can print it as many times as you like." data-pl="Dziękujemy za zamówienie. Kliknij poniżej, aby pobrać plik do druku — możesz drukować, ile chcesz.">Thanks for your order. Click below to download your printable — you can print it as many times as you like.</p>
+    <a id="dl" class="btn" href="#" data-en="⬇ Download my bundle" data-pl="⬇ Pobierz zestaw">⬇ Download my bundle</a>
+    <a class="home" href="/" data-en="← Back to Little Big Minds" data-pl="← Wróć do Little Big Minds">← Back to Little Big Minds</a>
   </div>
   <script>
     const params = new URLSearchParams(location.search);
@@ -47,10 +47,13 @@
     if (sid) {
       dl.href = "/.netlify/functions/download?session_id=" + encodeURIComponent(sid);
     } else {
+      dl.setAttribute("data-en", "Order not found");
+      dl.setAttribute("data-pl", "Nie znaleziono zamówienia");
       dl.textContent = "Order not found";
       dl.classList.add("err");
       dl.removeAttribute("href");
     }
   </script>
+  <script src="i18n.js" defer></script>
 </body>
 </html>
