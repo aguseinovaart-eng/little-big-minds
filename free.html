@@ -122,11 +122,12 @@
     var body = new URLSearchParams(new FormData(form)).toString();
     track('free_sample_submit');
     fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: body })
-      .then(function(){
+      .then(function(r){
+        if(!r.ok) throw 0;
         form.style.display = 'none';
         document.getElementById('freeDone').hidden = false;
       })
-      .catch(function(){ alert('Something went wrong — please try again.'); });
+      .catch(function(){ alert("We couldn't save your email just now — but your free sample is ready to download above. 💛"); });
     return false;
   }
 </script>

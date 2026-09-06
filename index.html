@@ -379,8 +379,8 @@
   function sendAsk(form){
     var body = new URLSearchParams(new FormData(form)).toString();
     fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: body })
-      .then(function(){ form.style.display='none'; document.getElementById('askOk').style.display='block'; })
-      .catch(function(){ alert('Oops — please try again or write us on Telegram.'); });
+      .then(function(r){ if(!r.ok) throw 0; form.style.display='none'; document.getElementById('askOk').style.display='block'; })
+      .catch(function(){ alert('Sorry, messaging isn\'t switched on yet — please try again later.'); });
     return false;
   }
   /* Language switching now lives in the shared i18n.js (loaded below). */
