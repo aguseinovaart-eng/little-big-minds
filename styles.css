@@ -24,7 +24,9 @@ header{position:sticky;top:0;z-index:20;background:rgba(247,239,225,.92);backdro
 .brand{display:flex;align-items:center;gap:12px;font-size:25px;font-weight:700}
 .menu{display:flex;gap:28px;font-family:"Gochi Hand",cursive;font-size:20px;color:var(--muted)}
 .menu a:hover{color:var(--terra)}
-.lang{font-family:"Gochi Hand",cursive;font-size:17px;border:2px solid var(--line);border-radius:10px;padding:5px 12px;color:var(--muted)}
+.lang{font-family:"Gochi Hand",cursive;font-size:17px;border:2px solid var(--line);border-radius:10px;padding:5px 12px;color:var(--muted);background:#fff;cursor:pointer}
+.lang span[data-set]{cursor:pointer;padding:0 2px}
+.lang span.on{color:var(--terra);font-weight:700}
 
 /* Chips */
 .chips{display:flex;gap:12px;flex-wrap:wrap}

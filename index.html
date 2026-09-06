@@ -380,19 +380,7 @@
       .catch(function(){ alert('Oops — please try again or write us on Telegram.'); });
     return false;
   }
-  function setLang(l){
-    document.querySelectorAll('[data-en]').forEach(function(e){
-      var t = e.getAttribute('data-' + l);
-      if(t !== null) e.textContent = t;
-    });
-    document.documentElement.lang = l;
-    document.querySelectorAll('.lang span').forEach(function(s){ s.classList.toggle('on', s.getAttribute('data-set') === l); });
-    try{ localStorage.setItem('lbm_lang', l); }catch(e){}
-  }
-  document.querySelectorAll('.lang span').forEach(function(s){
-    s.addEventListener('click', function(){ setLang(s.getAttribute('data-set')); });
-  });
-  (function(){ var l='en'; try{ l = localStorage.getItem('lbm_lang') || 'en'; }catch(e){} setLang(l); })();
+  /* Language switching now lives in the shared i18n.js (loaded below). */
 
   async function buyStripe(btn){
     var original = btn.textContent; btn.textContent = "…"; btn.disabled = true;
@@ -405,5 +393,6 @@
     btn.textContent = original; btn.disabled = false;
   }
 </script>
+<script src="i18n.js" defer></script>
 </body>
 </html>
