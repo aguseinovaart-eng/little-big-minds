@@ -267,7 +267,7 @@
           <h3><a href="product.html">Santa's Magical Mission</a></h3>
           <p data-en="A festive set that grows thinking, counting &amp; little hands. Ages 3–5." data-pl="Świąteczny zestaw rozwijający myślenie, liczenie i małe rączki. Wiek 3–5.">A festive set that grows thinking, counting &amp; little hands. Ages 3–5.</p>
           <a href="product.html" class="peek" data-en="✎ peek inside →" data-pl="✎ zajrzyj do środka →">✎ peek inside →</a>
-          <div class="prow"><span class="amt">€5.99</span><button type="button" class="add" onclick="buyStripe(this)" data-en="Add to basket" data-pl="Do koszyka">Add to basket</button></div>
+          <div class="prow"><span class="amt">€5.99</span><button type="button" class="add" onclick="buyStripe(this,'santas-magical-mission')" data-en="Add to basket" data-pl="Do koszyka">Add to basket</button></div>
         </div>
       </div>
 
@@ -382,15 +382,21 @@
   }
   /* Language switching now lives in the shared i18n.js (loaded below). */
 
-  async function buyStripe(btn){
+  async function buyStripe(btn, productId){
+    if (btn.dataset.loading) return;                 // guard accidental double-click
+    btn.dataset.loading = "1";
     var original = btn.textContent; btn.textContent = "…"; btn.disabled = true;
     try{
-      var r = await fetch("/.netlify/functions/create-checkout", { method: "POST" });
+      var r = await fetch("/.netlify/functions/create-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId: productId || "santas-magical-mission" })
+      });
       var data = await r.json();
-      if(data.url){ window.location.href = data.url; return; }
-      alert("Checkout isn't ready yet: " + (data.error || "unknown error"));
-    }catch(e){ alert("Network error: " + e.message); }
-    btn.textContent = original; btn.disabled = false;
+      if(r.ok && data.url){ window.location.href = data.url; return; }
+      alert(data.error || "Sorry, checkout isn't available right now. Please try again.");
+    }catch(e){ alert("Network problem — please check your connection and try again."); }
+    btn.textContent = original; btn.disabled = false; delete btn.dataset.loading;
   }
 </script>
 <script src="i18n.js" defer></script>

@@ -18,6 +18,8 @@
 <style>
   .crumb{padding:20px 0 0;color:var(--muted);font-weight:700;font-size:14px}
   .crumb a:hover{color:var(--terra)}
+  .cancelnote{background:#fff7ec;border:2px solid var(--mustard);border-radius:14px;padding:12px 16px;margin:16px 0 0;color:var(--ink);font-weight:700;font-size:14px;display:flex;gap:10px;align-items:center}
+  .cancelnote svg{width:20px;height:20px;flex:0 0 auto}
   .product{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:26px 0 10px;align-items:start}
   .gallery .cover{position:relative;background:var(--card);border:2px solid var(--line);border-radius:22px;
     box-shadow:var(--shadow);padding:20px;aspect-ratio:1/1;display:grid;place-items:center;
@@ -90,6 +92,10 @@
 
 <main class="wrap">
   <div class="crumb"><a href="index.html" data-en="Home" data-pl="Strona główna">Home</a> · <a href="catalog.html" data-en="Shop" data-pl="Sklep">Shop</a> · Santa's Magical Mission</div>
+  <div id="cancelNote" class="cancelnote" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="#c9a03a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span data-en="No worries — you weren't charged. Your bundle is right here whenever you're ready. 💛" data-pl="Bez obaw — nic nie pobrano. Twój zestaw czeka tutaj, gdy będziesz gotowa. 💛">No worries — you weren't charged. Your bundle is right here whenever you're ready. 💛</span>
+  </div>
 
   <section class="product">
     <!-- Gallery (frames ready for your real cover + sample pages) -->
@@ -124,7 +130,7 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="#8aa683" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L10 17l-5-5"/></svg> <span data-en="Mazes, patterns, sequencing &amp; symmetry" data-pl="Labirynty, wzory, kolejność i symetria">Mazes, patterns, sequencing &amp; symmetry</span></li>
       </ul>
       <div class="buyrow">
-        <button type="button" class="add" onclick="buyStripe(this)" data-en="Add to basket · €5.99" data-pl="Do koszyka · €5.99">Add to basket · €5.99</button>
+        <button type="button" class="add" onclick="buyStripe(this,'santas-magical-mission')" data-en="Add to basket · €5.99" data-pl="Do koszyka · €5.99">Add to basket · €5.99</button>
         <span class="note" data-en="⬇ instant download · print forever" data-pl="⬇ pobierasz od razu · drukuj bez końca">⬇ instant download · print forever</span>
       </div>
       <div class="chips">
@@ -195,15 +201,26 @@
 </footer>
 
 <script>
-  async function buyStripe(btn){
+  // Show a gentle note if the shopper cancelled Stripe checkout.
+  if (new URLSearchParams(location.search).get("checkout") === "cancelled") {
+    var cn = document.getElementById("cancelNote");
+    if (cn) { cn.hidden = false; cn.scrollIntoView({ block: "center" }); }
+  }
+  async function buyStripe(btn, productId){
+    if (btn.dataset.loading) return;                 // guard accidental double-click
+    btn.dataset.loading = "1";
     const original = btn.textContent; btn.textContent = "…"; btn.disabled = true;
     try{
-      const r = await fetch("/.netlify/functions/create-checkout", { method: "POST" });
+      const r = await fetch("/.netlify/functions/create-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId: productId || "santas-magical-mission" })
+      });
       const data = await r.json();
-      if(data.url){ window.location.href = data.url; return; }
-      alert("Checkout isn't ready yet: " + (data.error || "unknown error"));
-    }catch(e){ alert("Network error: " + e.message); }
-    btn.textContent = original; btn.disabled = false;
+      if(r.ok && data.url){ window.location.href = data.url; return; }
+      alert(data.error || "Sorry, checkout isn't available right now. Please try again.");
+    }catch(e){ alert("Network problem — please check your connection and try again."); }
+    btn.textContent = original; btn.disabled = false; delete btn.dataset.loading;
   }
 </script>
 <script src="i18n.js" defer></script>
