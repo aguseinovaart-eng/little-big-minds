@@ -8,11 +8,11 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Little Big Minds">
 <meta property="og:description" content="Screen-free printable activity bundles that help little minds grow. Ages 3–5.">
-<meta property="og:image" content="https://starlit-douhua-5ea50c.netlify.app/images/og-image.png">
+<meta property="og:image" content="https://aguseinovaart-eng.github.io/little-big-minds/images/og-image.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://starlit-douhua-5ea50c.netlify.app/">
-<meta property="og:url" content="https://starlit-douhua-5ea50c.netlify.app/">
+<link rel="canonical" href="https://aguseinovaart-eng.github.io/little-big-minds/">
+<meta property="og:url" content="https://aguseinovaart-eng.github.io/little-big-minds/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Gochi+Hand&display=swap" rel="stylesheet">
@@ -387,6 +387,13 @@
   /* Language switching now lives in the shared i18n.js (loaded below). */
 
   async function buyStripe(btn, productId){
+    var CHECKOUT_ENABLED = false; // flip to true once a payment host (e.g. Cloudflare) is connected
+    if(!CHECKOUT_ENABLED){
+      alert(document.documentElement.lang === 'pl'
+        ? 'Kasa otwiera się już wkrótce 💛 Na razie pobierz darmową próbkę na stronie „Darmowa próbka”.'
+        : 'Checkout opens very soon 💛 For now, grab the free sample from the Free sample page.');
+      return;
+    }
     if (btn.dataset.loading) return;                 // guard accidental double-click
     btn.dataset.loading = "1";
     var original = btn.textContent; btn.textContent = "…"; btn.disabled = true;
