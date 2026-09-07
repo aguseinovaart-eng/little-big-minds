@@ -45,4 +45,13 @@ footer .hand{color:var(--mustard);font-size:20px}
   font-size:11px;font-weight:600;color:var(--ink);opacity:.28}
 .wm svg{width:16px;height:16px}
 
+/* Legal pages */
+.legal{max-width:760px;margin:0 auto;padding:30px 22px 50px}
+.legal h1{font-size:36px;margin-bottom:6px}
+.legal .updated{color:var(--muted);font-size:14px;margin-bottom:18px}
+.legal .disc{background:#fff7ec;border:2px dashed var(--mustard);border-radius:12px;padding:12px 16px;font-size:13.5px;color:var(--ink);margin-bottom:24px}
+.legal h2{font-size:20px;margin:22px 0 6px}
+.legal p{color:var(--ink);font-size:15px;margin-bottom:10px;line-height:1.65}
+.legal .ph{background:#f1e6d2;border-radius:4px;padding:0 4px;font-weight:700}
+
 @media(max-width:880px){.menu{display:none}}
